@@ -1,0 +1,21 @@
+void bfs(int adj[V][V], int res[V], int *resSize) {
+    int visited[V] = {0};
+    int q[MAXQ];
+    int front = 0, rear = 0;
+    int src = 0;
+    visited[src] = 1;
+    q[rear++] = src;
+
+    while (front < rear) {
+        int curr = q[front++];
+        res[(*resSize)++] = curr;
+
+        
+        for (int x = 0; x < V; x++) {
+            if (adj[curr][x] && !visited[x]) {
+                visited[x] = 1;
+                q[rear++] = x;
+            }
+        }
+    }
+}
