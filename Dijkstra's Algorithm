@@ -22,10 +22,8 @@ void dijkstra(int n, int graph[n][n], int start, int dist[n]) {
             }
         }
 
-        if (u == -1) {
-            for (int i = 0; i < n; i++) {
-            }
-        }
+        if (u == -1)
+            break;
 
         visited[u] = 1;
 
@@ -37,4 +35,25 @@ void dijkstra(int n, int graph[n][n], int start, int dist[n]) {
             }
         }
     }
+}
+
+int main() {
+    int n = 5;
+    int graph[5][5] = {
+        {0, 10, 0, 30, 100},
+        {10, 0, 50, 0, 0},
+        {0, 50, 0, 20, 10},
+        {30, 0, 20, 0, 60},
+        {100, 0, 10, 60, 0}
+    };
+
+    int dist[5];
+
+    dijkstra(n, graph, 0, dist);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", dist[i]);
+    }
+
+    return 0;
 }
